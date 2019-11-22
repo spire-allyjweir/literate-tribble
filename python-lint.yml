@@ -1,0 +1,9 @@
+platform: linux
+
+inputs:
+  - name: repo
+    path: .
+
+run:
+  path: flake8
+  args: ["-v", "."]   
