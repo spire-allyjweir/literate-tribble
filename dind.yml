@@ -1,0 +1,26 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source: {repository: amidos/dcind, tag: 2}
+inputs:
+  - name: image
+  - name: repo
+run:
+  path: bash
+  args:
+    - -exc
+    - |
+      source /docker-lib.sh
+      start_docker
+
+      docker load -i image/image.tar
+
+      # Gives a way to visually check the image has been loaded
+      docker images
+
+      cd repo
+      ((script))
+
+      # Cleanup
+      docker-compose stop
+      docker-compose rm -f
