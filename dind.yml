@@ -10,5 +10,15 @@ run:
   args:
     - -exc
     - |
+      source /docker-lib.sh &>/dev/null
+      start_docker &>/dev/null
+
+      docker load -i image/image.tar &>/dev/null
+
       cd repo &>/dev/null
       ((script))
+
+      # Cleanup
+      docker-compose stop &>/dev/null
+      docker-compose rm -f &>/dev/null
+      docker volume rm $(docker volume ls -q) &>/dev/null
