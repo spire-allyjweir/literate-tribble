@@ -10,17 +10,20 @@ run:
   args:
     - -exc
     - |
-      source /docker-lib.sh
-      start_docker
+      echo "Preparing Docker-in-Docker environment"
+      source /docker-lib.sh &>/dev/null
+      start_docker &>/dev/null
 
-      docker load -i image/image.tar
+      docker load -i image/image.tar &>/dev/null
 
       # Gives a way to visually check the image has been loaded
-      docker images
+      # docker images 
 
-      cd repo
+      cd repo &>/dev/null
+      echo "Running provided script:"
+      echo "========================"
       ((script))
 
       # Cleanup
-      docker-compose stop
-      docker-compose rm -f
+      docker-compose stop &>/dev/null
+      docker-compose rm -f &>/dev/null
