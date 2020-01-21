@@ -10,7 +10,6 @@ run:
   args:
     - -exc
     - |
-      echo "Preparing Docker-in-Docker environment"
       source /docker-lib.sh &>/dev/null
       start_docker &>/dev/null
 
