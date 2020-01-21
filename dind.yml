@@ -20,10 +20,8 @@ run:
       # docker images 
 
       cd repo &>/dev/null
-      echo "Running provided script:"
-      echo "========================"
       ((script))
 
       # Cleanup
-      docker-compose stop &>/dev/null
-      docker-compose rm -f &>/dev/null
+      docker-compose stop 2>/dev/null
+      docker-compose rm -f 2>/dev/null
