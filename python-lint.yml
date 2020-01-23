@@ -6,4 +6,4 @@ inputs:
 
 run:
   path: flake8
-  args: ["-v", "."]   
+  args: ["-v", "."]

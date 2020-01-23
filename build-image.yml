@@ -10,13 +10,13 @@ caches:
 
 inputs:
 - name: input-repo
+  path: .
 
 outputs:
 - name: image
 
 params:
   UNPACK_ROOTFS: true
-  CONTEXT: input-repo
 
 run:
   path: build
