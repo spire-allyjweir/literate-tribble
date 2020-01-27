@@ -13,7 +13,8 @@ run:
       source /docker-lib.sh &>/dev/null
       start_docker &>/dev/null
 
-      docker load -i image/((image_filename)) &>/dev/null
+      docker load -i image/image &>/dev/null
+      docker tag "$(cat image/image-id)" "$(cat image/repository):$(cat image/tag)"
 
       cd repo &>/dev/null
       ((script))
