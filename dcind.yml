@@ -13,7 +13,7 @@ run:
       source /docker-lib.sh &>/dev/null
       start_docker &>/dev/null
 
-      docker load -i image/image.tar &>/dev/null
+      docker load -i image/$IMAGE_PATH &>/dev/null
 
       cd repo &>/dev/null
       ((script))
